@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.nativemovieondemand.MovieDetailsActivity" 
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title:" 
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+    
+    <TextView
+        android:id="@+id/tvDtlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:paddingTop="2dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Genre:"
+        android:textSize="15sp"
+        android:textStyle="bold" 
+        android:paddingTop="2dp" />
+    
+    <TextView
+        android:id="@+id/tvDtlDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Duration:" 
+        android:textStyle="bold"
+        android:textSize="15sp" 
+        android:paddingTop="2dp" />
+    
+    <TextView
+        android:id="@+id/tvDtlDur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Release date:" 
+        android:textStyle="bold"
+        android:textSize="15sp" />
+    
+    <TextView
+        android:id="@+id/tvDtlRelDt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"/>
+    
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ratings:" 
+        android:textStyle="bold"
+        android:textSize="15sp" 
+        android:paddingTop="2dp"/>
+   
+     <TextView
+        android:id="@+id/tvDtlRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"/>     
+     
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Description:" 
+         android:textStyle="bold"
+         android:textSize="15sp" 
+         android:paddingTop="2dp"/>
+
+     <TextView
+         android:id="@+id/tvDtlDescText"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+      
+</LinearLayout>
