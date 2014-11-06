@@ -6,4 +6,5 @@ public class TitlesDetail {
 	
 		List<String> titleIds;
 		List<String> titleNames;
+		List<Integer> imageIds;
 }

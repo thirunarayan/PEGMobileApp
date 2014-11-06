@@ -3,6 +3,8 @@ package com.example.nativemovieondemand;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -11,8 +13,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MovieDetailsActivity extends ActionBarActivity {
-
-	String URL = "http://pegdemo.mybluemix.net/PEGServer/MovieList.lib/MovieDtl/movieDetail";
+	String MOVIE_DTL_URL = "PEGServer/MovieList.lib/MovieDtl/movieDetail";
+	String DEFAULT_PORT = "http://pegdemo.mybluemix.net/";
 	TextView tvDtlTitle,tvDtlDesc,tvDtlDur,tvDtlRelDt,tvDtlDescText,tvDtlRate;
 	String titleName;
 	@Override
@@ -37,8 +39,8 @@ public class MovieDetailsActivity extends ActionBarActivity {
 	}
 	
 	private void getMovieInformation(String titleId){
-		String url = URL+"?title_id="+titleId;
-		JSONParser parser = new JSONParser();
+		String url = getURL()+"?title_id="+titleId;	
+		JSONParser parser = new JSONParser(this);
 		JSONObject jsonObject = parser.getJSONFromUrl(url);
 		System.out.println(jsonObject);
 		try {
@@ -47,6 +49,17 @@ public class MovieDetailsActivity extends ActionBarActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private String getURL()
+	{
+		String url = null;
+		SharedPreferences sp = getSharedPreferences("pref_url", 0);
+		String sharedUrl = sp.getString("url",null);
+		if(sharedUrl != null)
+		return  url = sharedUrl+MOVIE_DTL_URL;
+		else
+		return  url = DEFAULT_PORT+MOVIE_DTL_URL; 
 	}
 	
 	private void createTextViews(JSONObject movieDetails) throws JSONException{
@@ -81,6 +94,9 @@ public class MovieDetailsActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			Intent intent = new Intent(this,SettingActivity.class);
+			intent.putExtra("PARENT_CLASS_NAME", "MainActivity");
+			startActivity(intent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
